@@ -5,10 +5,12 @@ package vehicle;
  */
 public class Main {
     public static void main (String[] args){
-        CarDoor door = new CarDoor();
-        CarDoor window = new CarDoor();
-
-        CarDoor.doorWindowStatusInfo();
+       CarWheel wheel = new CarWheel();
+       wheel.wheelStatusInfo();
+       wheel.wheelWear(20);
+       wheel.wheelStatusInfo();
+       wheel.putNewWheel();
+        wheel.wheelStatusInfo();
 
     }
 }

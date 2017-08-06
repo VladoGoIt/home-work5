@@ -45,9 +45,9 @@ public class CarDoor {
         return windowStatusClose;
     }
 
-    public static void doorWindowStatusInfo(){
-        System.out.println("Door is close" + doorStatusClose);
-        System.out.println("Window is close" + windowStatusClose);
+    public void doorWindowStatusInfo(){
+        System.out.println("Door is close " + doorStatusClose);
+        System.out.println("Window is close " + windowStatusClose);
     }
 
 }
