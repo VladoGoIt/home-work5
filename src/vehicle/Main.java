@@ -5,12 +5,18 @@ package vehicle;
  */
 public class Main {
     public static void main (String[] args){
-       CarWheel wheel = new CarWheel();
-       wheel.wheelStatusInfo();
-       wheel.wheelWear(20);
-       wheel.wheelStatusInfo();
-       wheel.putNewWheel();
-        wheel.wheelStatusInfo();
+        CarWheel wheel1 = new CarWheel(0.8);
+
+        wheel1.wheelStatusInfo();
+
+        wheel1.wheelWearPercent(30);
+
+        wheel1.wheelStatusInfo();
+
+        wheel1.putNewWheel();
+
+        wheel1.wheelStatusInfo();
+
 
     }
 }

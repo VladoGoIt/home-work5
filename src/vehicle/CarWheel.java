@@ -5,28 +5,29 @@ package vehicle;
  */
 public class CarWheel {
     private double wheelStatus;
-    private double max = 1;
-    private double min = 0;
+    private double wheelMax = 1;
+    private double wheelMin = 0;
     private double wear;
 
     public CarWheel(){
-        wheelStatus = max;
+        wheelStatus = wheelMax;
         wear = 0;
 
     }
     public CarWheel(double status){
-        status = wheelStatus;
-        if (status > max){
-            wheelStatus = max;
-        }else if (status < min){
-            wheelStatus = min;
+        wheelStatus = status;
+        if (wheelStatus > wheelMax){
+            wheelStatus = wheelMax;
+        }else if (wheelStatus < wheelMin){
+            wheelStatus = wheelMin;
         }
     }
 
-    public double wheelWear(double wear){
+    public double wheelWearPercent(double wearPercent){
+        wear = wearPercent;
         wheelStatus = (wheelStatus * 100 - wear) / 100;
-        if (wheelStatus < 0){
-            wheelStatus = 0;
+        if (wheelStatus < wheelMin){
+            wheelStatus = wheelMin;
             return wheelStatus;
         }else {
             return wheelStatus;
@@ -34,15 +35,15 @@ public class CarWheel {
     }
 
     public double putNewWheel(){
-        wheelStatus = 1;
+        wheelStatus = wheelMax;
         return wheelStatus;
     }
 
     public void wheelStatusInfo(){
-        if (wheelStatus == 1){
-            System.out.println("колесо нове");
+        if (wheelStatus == wheelMax){
+            System.out.println("Колесо нове");
         }else {
-        System.out.println("Цілістність шини " + (wheelStatus * 100));
+        System.out.println("Цілістність шини " + (wheelStatus * 100) + "%");
         }
     }
 }
