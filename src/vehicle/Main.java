@@ -5,17 +5,34 @@ package vehicle;
  */
 public class Main {
     public static void main (String[] args){
-        CarWheel wheel1 = new CarWheel(0.8);
+        Car audi = new Car(2017, 3.5, 200, 10, 4, 1, 20);
 
-        wheel1.wheelStatusInfo();
+        CarWheel wheel1 = new CarWheel(0.4);
+        CarWheel wheel2 = new CarWheel(0.5);
+        CarWheel wheel3 = new CarWheel(0.6);
+        CarWheel wheel4 = new CarWheel(0.7);
 
-        wheel1.wheelWearPercent(30);
+        CarDoor door1 = new CarDoor();
+        CarDoor door2 = new CarDoor();
+        CarDoor door3 = new CarDoor();
+        CarDoor door4 = new CarDoor();
 
-        wheel1.wheelStatusInfo();
 
-        wheel1.putNewWheel();
 
-        wheel1.wheelStatusInfo();
+        for(CarWheel wheel: wheelsArr) {
+            wheel.wheelStatusInfo();
+        }
+         audi.carInfo();
+        audi.doorArrInfo();
+
+
+
+
+
+
+
+
+
 
 
     }

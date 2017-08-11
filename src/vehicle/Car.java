@@ -7,14 +7,14 @@ public class Car {
     private int madeData;
     private double engineType;
     private int maxSpeed;
-    private double acceleration;
+    private int acceleration;
     private int maxPassengers;
     private int passengersInside;
     private int currentSpeed;
-    private int[] wheels;
-    private int[] doors;
+    private CarWheel[] wheelsArr;
+    private CarDoor[] doorsArr;
 
-    public Car(int year){
+    public Car(int year) {
         madeData = year;
     }
 
@@ -22,12 +22,11 @@ public class Car {
             int year,
             double engineType,
             int maxSpeed,
-            double acceleration,
+            int acceleration,
             int maxPassengers,
             int passengersInside,
             int currentSpeed
-            )
-    {
+    ) {
         madeData = year;
         this.engineType = engineType;
         this.maxSpeed = maxSpeed;
@@ -37,40 +36,68 @@ public class Car {
         this.currentSpeed = currentSpeed;
     }
 
-    public int changeCurrentSpeed (int newSpeed){
+    public int changeCurrentSpeed(int newSpeed) {
         currentSpeed = newSpeed;
         return currentSpeed;
     }
 
-    public int addPassenger (){
-        ++passengersInside;
+    public int maxCurentSpeed(maxSpeed){
+
+    }
+
+    public int addPassenger() {
+        if (passengersInside < maxPassengers) {
+            ++passengersInside;
+        } else {
+            System.out.println("нема місця");
+        }
         return passengersInside;
     }
 
-    public int extractPassenger (){
+    public int extractPassenger() {
         --passengersInside;
         return passengersInside;
     }
 
-    public int extractAllPassenger (){
+    public int extractAllPassenger() {
         passengersInside = 0;
         return passengersInside;
     }
 
-    //public int[] extractAllWheels(){
-     //   wheels [i] = wheels [0];
-     //   return wheels;
-    //}
-
-    public void carInfo(){
-        System.out.println(madeData);
-        System.out.println(engineType);
-        System.out.println(maxSpeed);
-        System.out.println(acceleration);
-        System.out.println(maxPassengers);
-        System.out.println(passengersInside);
-        System.out.println(currentSpeed);
-        System.out.println(wheels);
-        System.out.println(doors);
+    public CarWheel[] createWheelArr(CarWheel wheel1, CarWheel wheel2, CarWheel wheel3, CarWheel wheel4) {
+        wheelsArr = new CarWheel[]{wheel1, wheel2, wheel3, wheel4};
+        return wheelsArr;
     }
+
+
+    public CarDoor[] createDoorArr(CarDoor door1, CarDoor door2, CarDoor door3, CarDoor door4) {
+        int num = 4;
+        CarDoor[] doorsArr = new CarDoor []{door1, door2, door3, door4};
+        return doorsArr;
+
+    }
+
+    public void doorArrInfo(int x) {
+
+        }
+
+
+    public void carInfo() {
+        System.out.println("Year made " + madeData);
+        System.out.println("Engine type " + engineType + " L");
+        System.out.println("MaxSpeed " + maxSpeed + " km/h");
+        System.out.println("acceleration " + acceleration + " sec");
+        System.out.println("Max passengers " + maxPassengers);
+        System.out.println("Passengers inside " + passengersInside);
+        System.out.println("Current speed " + currentSpeed  + " km/h");
+
+    }
+
+    private void wheelArrInfo() {
+        for (int i = 0; i < wheelsArr.length; i++) {
+            System.out.println("wheel" + (i + 1) + wheelsArr[i] + ", ");
+        }
+    }
+
 }
+
