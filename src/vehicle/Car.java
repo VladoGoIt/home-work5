@@ -13,6 +13,7 @@ public class Car {
     private int currentSpeed;
     private CarWheel[] wheelsArr;
     private CarDoor[] doorsArr;
+    double minWheelStatus;
 
     public Car(int year) {
         madeData = year;
@@ -41,8 +42,14 @@ public class Car {
         return currentSpeed;
     }
 
-    public int maxCurentSpeed(maxSpeed){
-
+    public int maxCurentSpeed(){
+        int maxCurrentSpeed;
+        if (passengersInside < 0){
+            maxCurrentSpeed = 0;
+        }else {
+            maxCurrentSpeed = (int) (maxSpeed * minWheelStatus);
+        }
+        return maxCurrentSpeed;
     }
 
     public int addPassenger() {
@@ -69,6 +76,17 @@ public class Car {
         return wheelsArr;
     }
 
+    public double minWheelStatus (){
+        minWheelStatus = 0;
+        for (int i = 0; i < wheelsArr.length; i++){
+            if (minWheelStatus > wheelsArr.CarWheel.wheelStatus[i]) {
+                minWheelStatus = wheelsArr[i];
+            }
+            return minWheelStatus;
+        }
+
+        return minWheelStatus;
+    }
 
     public CarDoor[] createDoorArr(CarDoor door1, CarDoor door2, CarDoor door3, CarDoor door4) {
         int num = 4;
@@ -77,10 +95,9 @@ public class Car {
 
     }
 
-    public void doorArrInfo(int x) {
+    public void doorArrInfo() {
 
         }
-
 
     public void carInfo() {
         System.out.println("Year made " + madeData);
@@ -98,6 +115,9 @@ public class Car {
             System.out.println("wheel" + (i + 1) + wheelsArr[i] + ", ");
         }
     }
+
+
+
 
 }
 
